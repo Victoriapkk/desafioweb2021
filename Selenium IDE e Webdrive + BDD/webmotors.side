@@ -1,0 +1,73 @@
+{
+  "id": "4ae2e47f-cb0c-4935-96bd-a54fdb942349",
+  "version": "2.0",
+  "name": "webmotors",
+  "url": "https://www.webmotors.com.br",
+  "tests": [{
+    "id": "89e645f5-6e4c-4489-823b-b58cd27399d2",
+    "name": "testweb",
+    "commands": [{
+      "id": "4c0fbe12-e334-442f-a82f-1bb0158215bf",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a3b12462-8621-4092-99d9-fb9ddf2edfb1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x696",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af9a64a2-0a97-4070-8901-93e617427882",
+      "comment": "",
+      "command": "click",
+      "target": "id=searchBar",
+      "targets": [
+        ["id=searchBar", "id"],
+        ["css=#searchBar", "css:finder"],
+        ["xpath=//input[@id='searchBar']", "xpath:attributes"],
+        ["xpath=//div[@id='WhiteBox']/div/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f6cee01-f866-4049-a69c-45b680546fa0",
+      "comment": "",
+      "command": "type",
+      "target": "id=searchBar",
+      "targets": [
+        ["id=searchBar", "id"],
+        ["css=#searchBar", "css:finder"],
+        ["xpath=//input[@id='searchBar']", "xpath:attributes"],
+        ["xpath=//div[@id='WhiteBox']/div/div[2]/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div[2]/div/div/div/div/input", "xpath:position"]
+      ],
+      "value": "honda city"
+    }, {
+      "id": "0229bfb1-7804-446b-90c2-888ac8cc45f1",
+      "comment": "",
+      "command": "click",
+      "target": "css=strong:nth-child(2)",
+      "targets": [
+        ["css=strong:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='WhiteBox']/div/div[2]/div/div/div/div/div/div/a/div[2]/strong[2]", "xpath:idRelative"],
+        ["xpath=//strong[2]", "xpath:position"],
+        ["xpath=//strong[contains(.,'City')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "e958e948-4559-4aa2-b421-f7091cc5c285",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["89e645f5-6e4c-4489-823b-b58cd27399d2"]
+  }],
+  "urls": ["https://www.webmotors.com.br/"],
+  "plugins": []
+}

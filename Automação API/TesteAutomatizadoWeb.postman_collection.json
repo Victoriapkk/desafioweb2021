@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "a094009a-9017-4a18-bd77-56caaa02b63f",
+		"name": "DesafioWebMotors",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API para recuperar marcas cadastradas na webmotors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Verifica se o código de resposta é 200\"] = responseCode.code === 200;\r",
+							"tests[\"Verifica se a requisição traz a marca Honda\"] = responseBody.has(\"Honda\");\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Verifica o ID da marca Honda\"] = jsonData[1].ID === 2;\r",
+							"tests[\"Verifica se a marca do ID é retornada\"] = jsonData[1].Name === \"Honda\";\r",
+							"pm.test(\"Tempo de resposta inferior a 20s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(20000);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Make",
+					"protocol": "https",
+					"host": [
+						"desafioonline",
+						"webmotors",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"OnlineChallenge",
+						"Make"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API para recuperar modelos cadastradas na webmotors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tempo de resposta inferior a 2s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"tests[\"Verifica se o código de resposta é 200\"] = responseCode.code === 200;\r",
+							"tests[\"Verifica se a requisição traz o modelo City\"] = responseBody.has(\"City\");\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"tests[\"Verifica o ID da marca Honda\"] = jsonData[1].MakeID === 2;\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=2",
+					"protocol": "https",
+					"host": [
+						"desafioonline",
+						"webmotors",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"OnlineChallenge",
+						"Model"
+					],
+					"query": [
+						{
+							"key": "MakeID",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API para recuperar versão cadastradas na webmotors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Verifica se o código de resposta é 200\"] = responseCode.code === 200;\r",
+							"pm.test(\"Tempo de resposta inferior a 2s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=4",
+					"protocol": "https",
+					"host": [
+						"desafioonline",
+						"webmotors",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"OnlineChallenge",
+						"Version"
+					],
+					"query": [
+						{
+							"key": "ModelID",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API para recuperar veiculos cadastradas na webmotors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Verifica se o código de resposta é 200\"] = responseCode.code === 200;\r",
+							"pm.test(\"Tempo de resposta inferior a 2s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"tests[\"Verifica se a requisição traz marca Honda\"] = responseBody.has(\"Honda\");\r",
+							"\r",
+							"tests[\"Verifica se a requisição traz o modelo City\"] = responseBody.has(\"City\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?page=1",
+					"protocol": "https",
+					"host": [
+						"desafioonline",
+						"webmotors",
+						"com",
+						"br"
+					],
+					"path": [
+						"api",
+						"OnlineChallenge",
+						"Vehicles"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
